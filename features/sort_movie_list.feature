@@ -22,8 +22,10 @@ Background: movies have been added to database
   And I am on the RottenPotatoes home page
 
 Scenario: sort movies alphabetically
-  # your scenario here
+  When I sort movies by "Title"
+  Then the movies should sorted by "Title"
 
 Scenario: sort movies in increasing order of release date
-  # your scenario here
+  When I sort movies by "Release Date"
+  Then the movies should sorted by "Release Date"
 

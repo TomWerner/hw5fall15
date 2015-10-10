@@ -28,7 +28,7 @@ Given /^I am on the RottenPotatoes home page$/ do
    click_on "More about #{title}"
  end
 
- Then /^(?:|I )should see "([^"]*)"$/ do |text|
+ Then /^(?:|I )should see "([^\"]*)"$/ do |text|
     expect(page).to have_content(text)
  end
 
@@ -46,29 +46,60 @@ Given /^I am on the RottenPotatoes home page$/ do
 # Add a declarative step here for populating the DB with movies.
 
 Given /the following movies have been added to RottenPotatoes:/ do |movies_table|
-  pending  # Remove this statement when you finish implementing the test step
+  #pending  # Remove this statement when you finish implementing the test step
   movies_table.hashes.each do |movie|
-    # Each returned movie will be a hash representing one row of the movies_table
-    # The keys will be the table headers and the values will be the row contents.
-    # Entries can be directly to the database with ActiveRecord methods
-    # Add the necessary Active Record call(s) to populate the database.
+      Movie.create!(movie)
   end
 end
 
 When /^I have opted to see movies rated: "(.*?)"$/ do |arg1|
-  # HINT: use String#split to split up the rating_list, then
-  # iterate over the ratings and check/uncheck the ratings
-  # using the appropriate Capybara command(s)
-  pending  #remove this statement after implementing the test step
+    ratings = arg1.split(/\s*,\s*/)
+    uncheck("ratings_G")
+    uncheck("ratings_PG")
+    uncheck("ratings_PG-13")
+    uncheck("ratings_R")
+    uncheck("ratings_NC-17")
+    
+    ratings.each do |rating|
+        check("ratings_#{rating.to_s}")
+    end
+    
+    click_button "Refresh"
 end
 
 Then /^I should see only movies rated: "(.*?)"$/ do |arg1|
-  pending  #remove this statement after implementing the test step
+    ratings = arg1.split(/\s*,\s*/)
+    
+    movieCount = 0
+    ratings.each do |rating|
+        Movie.where(:rating => rating).find_each do |movie|
+            expect(page).to have_content(movie.title)
+            movieCount += 1
+        end
+    end
+    # -1 because there is a tr for the header
+    (all("tr").count - 1).should == movieCount
 end
 
 Then /^I should see all of the movies$/ do
-  pending  #remove this statement after implementing the test step
+    Movie.all.find_each do |movie|
+        expect(page).to have_content(movie.title)
+    end
+end
+
+When /^I sort movies by "(.*?)"$/ do |sortBy|
+    guiSortMap = {"Title" => "Movie Title", "Release Date" => "Release Date"}
+    click_on(guiSortMap[sortBy])
 end
 
 
+Then /^the movies should sorted by "(.*?)"$/ do |sortedBy|
+    dbSortMap = {"Title" => :title, "Release Date" => :release_date}
+    expected = Movie.order(dbSortMap[sortedBy] => :asc).all
+    
+    find("tbody").all("tr").each_with_index do |row, index|
+        expect(row).to have_content(expected[index].title)
+        expect(row).to have_content(expected[index].release_date)
+    end
+end
 
