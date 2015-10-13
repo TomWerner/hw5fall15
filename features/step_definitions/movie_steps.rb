@@ -78,7 +78,7 @@ Then /^I should see only movies rated: "(.*?)"$/ do |arg1|
         end
     end
     # -1 because there is a tr for the header
-    (all("tr").count - 1).should == movieCount
+    expect(all("tr").count - 1).to equal(movieCount)
 end
 
 Then /^I should see all of the movies$/ do
