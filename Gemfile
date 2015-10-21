@@ -23,6 +23,8 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem 'themoviedb'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -39,11 +41,14 @@ group :development, :test do
   gem 'capybara'
   gem 'launchy'
   gem 'rspec-rails'
+  gem 'rspec-mocks'
+  gem 'autotest-rails'
 end
 
 group :test do
+  gem 'cucumber-rails', :require => false
   gem 'rspec-expectations'
-  gem 'cucumber-rails' 
+  gem 'simplecov', :require => false
 end
 
 group :production do
