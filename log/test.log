@@ -11903,3 +11903,93 @@ Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms)
   [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
   [1m[35m (0.1ms)[0m  begin transaction
   [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+  Rendered movies/search_tmdb.html.haml within layouts/application (0.3ms)
+Completed 200 OK in 15ms (Views: 14.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+  Rendered movies/search_tmdb.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+  Rendered movies/search_tmdb.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+  Rendered movies/search_tmdb.html.haml within layouts/application (0.3ms)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Redirected to http://test.host/movies
+Completed 302 Found in 1ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+  Rendered movies/search_tmdb.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>""}
+Redirected to http://test.host/movies
+Completed 302 Found in 0ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by MoviesController#add_tmdb as HTML
+  Parameters: {"tmdb_movies"=>{"123"=>"1", "456"=>"1"}}
+Redirected to http://test.host/movies
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by MoviesController#add_tmdb as HTML
+Redirected to http://test.host/movies
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by MoviesController#add_tmdb as HTML
+  Parameters: {"tmdb_movies"=>{"123"=>"1", "456"=>"1"}}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "movies" ("description", "release_date", "title", "rating", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["description", "An animated fantasy film from 1978 based on the first half of J.R.R Tolkien’s Lord of the Rings novel. The film was mainly filmed using rotoscoping, meaning it was filmed in live action sequences with real actors and then each frame was individually animated."], ["release_date", "1978-11-15 00:00:00.000000"], ["title", "The Lord of the Rings"], ["rating", "PG-13"], ["created_at", "2015-10-23 16:47:25.096277"], ["updated_at", "2015-10-23 16:47:25.096277"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (3.3ms)[0m  [1mINSERT INTO "movies" ("rating", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["rating", "NC-17"], ["created_at", "2015-10-23 16:47:25.190817"], ["updated_at", "2015-10-23 16:47:25.190817"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/movies
+Completed 302 Found in 187ms (ActiveRecord: 4.4ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"123"}
+  Rendered movies/show.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "movies" ("description", "release_date", "title", "rating", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["description", "The description"], ["release_date", "1990-10-14 00:00:00.000000"], ["title", "Inception"], ["rating", "NC-17"], ["created_at", "2015-10-23 16:47:25.217865"], ["updated_at", "2015-10-23 16:47:25.217865"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movies" ("description", "release_date", "title", "rating", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "The description"], ["release_date", "1990-10-14 00:00:00.000000"], ["title", "Inception"], ["rating", "NC-17"], ["created_at", "2015-10-23 16:47:25.222272"], ["updated_at", "2015-10-23 16:47:25.222272"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m

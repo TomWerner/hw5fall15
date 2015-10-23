@@ -67,8 +67,11 @@ describe MoviesController do
   
   describe 'MoviesController#show' do
     it 'should return the movie specified' do
-      Movie.should_receive(:find).with("123")
+      fake_result = double('movie')
+      Movie.should_receive(:find).with("123").and_return(fake_result)
       get :show, {'id' => 123}
+      expect(response).to render_template('show')
+      expect(assigns(:movie)).to eq(fake_result)
     end
   end
 end
